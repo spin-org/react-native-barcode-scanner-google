@@ -335,7 +335,9 @@ public class CameraSource {
     public void release() {
         synchronized (mCameraLock) {
             stop();
-            mFrameProcessor.release();
+            if (mFrameProcessor != null) {
+                mFrameProcessor.release();              
+            }
         }
     }
 
